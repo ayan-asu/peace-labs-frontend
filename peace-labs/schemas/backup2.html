@@ -1,0 +1,2234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>PEACE Labs at ASU</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+<!-- Include Bootstrap Icons CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/dist/css/bootstrap-icons.min.css">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
+<!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet"> -->
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="51">
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow py-lg-0 px-4 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+        <a href="index.html" class="navbar-brand d-block d-lg-none">
+            <!-- <h1 class="text-primary fw-bold m-0">PEACE Labs</h1> -->
+            <img src="./img/LogoNew.png" alt="" style="width : 150px">
+        </a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon abhi"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between py-4 py-lg-0" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="dropdown-text">Home</span>
+                        <!-- <span class="dropdown-icon"></span> -->
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="homeDropdown">
+                        <li><a class="dropdown-item" href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#service" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="dropdown-text">Research</span>
+                        <!-- <span class="dropdown-icon"></span> -->
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="homeDropdown">
+                        <li><a class="dropdown-item" href="#project">Projects</a></li>
+                    </ul>
+                </div>
+                <!-- <a href="#service" class="nav-item nav-link">Research</a> -->
+                <a href="#team" class="nav-item nav-link">Team</a>
+                <a href="#skill" class="nav-item nav-link">Awards and Positions</a>
+            </div>
+            <a href="index.html" class="navbar-brand bg-secondary py-3 px-4 mx-3 d-none d-lg-block">
+                <!-- <h1 class="text-primary fw-bold m-0">PEACE Labs</h1> -->
+                <img src="./img/LogoNew.png" alt="" style="width : 150px">
+            </a>
+            <div class="navbar-nav me-auto py-0">
+                <a href="#publication" class="nav-item nav-link">Publications</a>
+                <a href="#teaching" class="nav-item nav-link">Teaching</a>
+                <a href="#miscellaneous" class="nav-item nav-link">Miscellaneous</a>
+                <a href="#contact" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <style>
+      /* Custom CSS for hover dropdown */
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+      
+      /* Custom CSS for arrow icon */
+      .dropdown-icon {
+        display: inline-block;
+        width: 0.5rem;
+        height: 0.5rem;
+        margin-left: 0.25rem;
+        transition: transform 0.3s ease;
+        transform: rotate(0deg);
+        transform-origin: center;
+        vertical-align: middle;
+        border-top: 0.2rem solid;
+        border-right: 0.2rem solid transparent;
+        border-left: 0.2rem solid transparent;
+      }
+      
+      .dropdown:hover .dropdown-icon {
+        transform: rotate(180deg);
+      }
+    </style>
+    
+    
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-light vh-100" id="home">
+        <div class="container h-100">
+          <div class="row g-5 h-100 align-items-center">
+            <div class="col-lg-9 py-6 pb-0 pt-lg-0">
+              <h3 class="text-primary mb-3">Welcome to</h3>
+              <h1 class="display-3 mb-3">Power Electronics and Control Engineering Laboratory at <span style="color: maroon;">ASU</span></h1>
+              <h2 class="typed-text-output d-inline"></h2>
+              <div class="typed-text d-none">Wide band gap semiconductor devices, advanced power electronics, onboard/offboard charging systems, harsh environment power conversion, Space applications, PV grid interfacing, data center power conversion, optimization, reliability study</div>
+              <div class="d-flex align-items-center pt-5">
+                <button type="button" class="btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
+                  <span></span>
+                </button>
+                <h5 class="ms-4 mb-0 d-none d-sm-block">Lab Tour</h5>
+              </div>
+            </div>
+            <div class="col-lg-3">
+            <h3>Latest News</h3>
+              <div class="latest-news">
+   <ul class="list-unstyled news-list">
+
+    <!-- <li><b>Grant (June 2022): </b>Prof. Mallik, as a PI wins funding from the Arizona New Economy Initiative (NEI) Advanced Materials, Processes, and Energy Devices (AMPED) Science and Technology Center (STC) on a project titled 'New Methodologies for Predicting Remaining Life of Second Life Lithium-Ion Batteries'</li>
+    <li><b>Grant (June 2022): </b>Prof. Mallik, as a Co-PI wins funding from the Arizona New Economy Initiative (NEI) Advanced Materials, Processes, and Energy Devices (AMPED) Science and Technology Center (STC) on a project titled 'Phase Change Materials as Passive Thermal Management Medium for Li-Ion Batteries for electric vehicle (EV) applications'</li>
+    <li><b>Grant (May 2022): </b>Prof. Mallik, as a PI wins funding from Salt River Project (SRP) on a project titled 'Modeling, Analysis, and Mitigation of Power Quality Impacts of Electric Vehicle (EV) Charging'</li>
+    <li>News Topic 4</li> -->
+  </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+    <!-- Header End -->
+
+
+<!-- Video Modal Start -->
+<div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content rounded-0">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLabel">PEACE Lab Tour</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- 16:9 aspect ratio -->
+          <div class="ratio ratio-16x9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/okCiAMTxVbE" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Get the modal element and the video iframe
+    const modal = document.getElementById('videoModal');
+    const videoIframe = modal.querySelector('.modal-body iframe');
+  
+    // Add an event listener to the modal's 'hidden.bs.modal' event
+    modal.addEventListener('hidden.bs.modal', function () {
+      // Pause the video playback when the modal is closed
+      videoIframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    });
+  </script>
+  
+
+      
+      
+    <!-- Video Modal End -->
+
+
+    <!-- About Start -->
+    <div class="container-xxl" id="about">
+      
+    </div>
+
+    <script> const projectId = '12f5bn1q';
+        const datasetName = 'production';
+        const queryHomepage = `*[_type == 'homepage'][0] {
+      intro,
+      experience,
+      labPics[] {
+        caption,
+        asset->{url}
+      },
+      caption1,
+      caption2
+    }`;
+        async function fetchHomepage() {
+      const response = await fetch( `https://${projectId}.api.sanity.io/v2021-10-21/data/query/${datasetName}?query=${encodeURIComponent(queryHomepage)}`);
+      const data = await response.json();
+      return data.result;
+    }
+    
+    // Function to render sponsors logos
+    async function renderHomepage() {
+      const homepagedata = await fetchHomepage();
+    
+         // Extracting the data
+         const intro = homepagedata.intro.map(item => {
+            const children = item.children.map(child => child.text).join('');
+            return children.trim();
+          });
+          
+          const experience = homepagedata.experience;
+          const labPics = homepagedata.labPics;
+          
+          const caption1 = homepagedata.caption1;
+          const caption2 = homepagedata.caption2;
+          
+          
+         // Creating the dynamic HTML
+    const containerDiv = document.createElement("div");
+    containerDiv.className = "container-xxl py-6";
+    containerDiv.id = "about";
+    
+    const containerInnerDiv = document.createElement("div");
+    containerInnerDiv.className = "container";
+    
+    const rowDiv = document.createElement("div");
+    rowDiv.className = "row g-5";
+    
+    // First column
+    const col1Div = document.createElement("div");
+    col1Div.className = "col-lg-6 wow fadeInUp";
+    col1Div.setAttribute("data-wow-delay", "0.1s");
+    
+    const dFlexDiv = document.createElement("div");
+    dFlexDiv.className = "d-flex align-items-center mb-5";
+    
+    const yearsDiv = document.createElement("div");
+    yearsDiv.className = "years flex-shrink-0 text-center me-4";
+    
+    const yearsHeading = document.createElement("h1");
+    yearsHeading.className = "display-1 mb-0";
+    yearsHeading.textContent = experience + "+";
+    
+    const yearsSubheading = document.createElement("h5");
+    yearsSubheading.className = "mb-0";
+    yearsSubheading.textContent = "Years";
+    
+    yearsDiv.appendChild(yearsHeading);
+    yearsDiv.appendChild(yearsSubheading);
+    
+    const researchHeading = document.createElement("h3");
+    researchHeading.className = "lh-base mb-0";
+    researchHeading.textContent = "of research on the power electronics domain";
+    
+    dFlexDiv.appendChild(yearsDiv);
+    dFlexDiv.appendChild(researchHeading);
+    
+    col1Div.appendChild(dFlexDiv);
+    
+    const introParagraph = document.createElement("p");
+    introParagraph.className = "mb-4";
+    introParagraph.innerHTML = intro[0];
+    
+    col1Div.appendChild(introParagraph);
+    
+    const researchList = document.createElement("ul");
+    researchList.className = "mb-3";
+    
+    intro.slice(2).forEach(item => {
+      const listItem = document.createElement("li");
+      listItem.innerHTML = item;
+      
+      // Check for marks
+      if (item.marks) {
+        item.marks.forEach(mark => {
+          if (mark._type === "link") {
+            const link = document.createElement("a");
+            link.href = mark.href;
+            link.textContent = mark.children[0].text;
+            listItem.appendChild(link);
+          } else if (mark._type === "strong") {
+            const strong = document.createElement("strong");
+            strong.textContent = mark.children[0].text;
+            listItem.appendChild(strong);
+          }
+        });
+      }
+      
+      researchList.appendChild(listItem);
+    });
+    
+    col1Div.appendChild(researchList);
+    
+    rowDiv.appendChild(col1Div);
+    
+          
+          // Second column
+          const col2Div = document.createElement("div");
+          col2Div.className = "col-lg-6 wow fadeInUp";
+          col2Div.setAttribute("data-wow-delay", "0.5s");
+          
+          const carouselDiv = document.createElement("div");
+          carouselDiv.id = "imageCarousel";
+          carouselDiv.className = "carousel slide";
+          carouselDiv.setAttribute("data-bs-ride", "carousel");
+          carouselDiv.setAttribute("data-bs-interval", "3000");
+          
+          const carouselInnerDiv = document.createElement("div");
+          carouselInnerDiv.className = "carousel-inner";
+          
+          const carouselItems = labPics.map((pic, index) => {
+            const carouselItemDiv = document.createElement("div");
+            carouselItemDiv.className = "carousel-item" + (index === 0 ? " active" : "");
+          
+            const ratioDiv = document.createElement("div");
+            ratioDiv.className = "ratio ratio-16x9";
+          
+            const image = document.createElement("img");
+            image.className = "img-fluid rounded img-fit-cover";
+            image.src = pic.asset.url;
+            image.alt = `Slide ${index + 1}`;
+          
+            ratioDiv.appendChild(image);
+            carouselItemDiv.appendChild(ratioDiv);
+          
+            const carouselCaptionDiv = document.createElement("div");
+            carouselCaptionDiv.className = "carousel-caption";
+          
+            const captionHeading = document.createElement("h6");
+    captionHeading.textContent = pic.caption;
+    captionHeading.style.color = "white";
+    captionHeading.style.backgroundColor = "rgba(0, 0, 0, 0.6)";
+    captionHeading.style.position = "absolute";
+    captionHeading.style.bottom = "0";
+    captionHeading.style.width = "100%";
+    captionHeading.style.padding = "10px";
+    captionHeading.style.boxSizing = "border-box";
+    
+          
+            carouselCaptionDiv.appendChild(captionHeading);
+          
+            carouselItemDiv.appendChild(carouselCaptionDiv);
+          
+            return carouselItemDiv;
+          });
+          
+          carouselItems.forEach(item => {
+            carouselInnerDiv.appendChild(item);
+          });
+          
+          const prevButton = document.createElement("button");
+          prevButton.className = "carousel-control-prev";
+          prevButton.type = "button";
+          prevButton.setAttribute("data-bs-target", "#imageCarousel");
+          prevButton.setAttribute("data-bs-slide", "prev");
+          
+          const prevButtonSpan1 = document.createElement("span");
+          prevButtonSpan1.className = "carousel-control-prev-icon";
+          prevButtonSpan1.setAttribute("aria-hidden", "true");
+          
+          const prevButtonSpan2 = document.createElement("span");
+          prevButtonSpan2.className = "visually-hidden";
+          prevButtonSpan2.textContent = "Previous";
+          
+          prevButton.appendChild(prevButtonSpan1);
+          prevButton.appendChild(prevButtonSpan2);
+          
+          const nextButton = document.createElement("button");
+          nextButton.className = "carousel-control-next";
+          nextButton.type = "button";
+          nextButton.setAttribute("data-bs-target", "#imageCarousel");
+          nextButton.setAttribute("data-bs-slide", "next");
+          
+          const nextButtonSpan1 = document.createElement("span");
+          nextButtonSpan1.className = "carousel-control-next-icon";
+          nextButtonSpan1.setAttribute("aria-hidden", "true");
+          
+          const nextButtonSpan2 = document.createElement("span");
+          nextButtonSpan2.className = "visually-hidden";
+          nextButtonSpan2.textContent = "Next";
+          
+          nextButton.appendChild(nextButtonSpan1);
+          nextButton.appendChild(nextButtonSpan2);
+          
+          carouselDiv.appendChild(carouselInnerDiv);
+          carouselDiv.appendChild(prevButton);
+          carouselDiv.appendChild(nextButton);
+          
+          col2Div.appendChild(carouselDiv);
+          
+          const placeholderDiv1 = document.createElement("div");
+    placeholderDiv1.className = "d-flex align-items-center mb-3 mt-2"; // Added "mt-2" class for top margin
+    
+    const placeholderHeading1 = document.createElement("h5");
+    placeholderHeading1.className = "pe-3 me-3 mb-0";
+    placeholderHeading1.innerHTML = highlightNumbers(caption1);
+    
+    placeholderDiv1.appendChild(placeholderHeading1);
+    
+    col2Div.appendChild(placeholderDiv1);
+    
+    const placeholderDiv2 = document.createElement("div");
+    placeholderDiv2.className = "d-flex align-items-center";
+    
+    const placeholderHeading2 = document.createElement("h5");
+    placeholderHeading2.className = "pe-3 me-3 mb-0";
+    placeholderHeading2.innerHTML = highlightNumbers(caption2);
+    
+    placeholderDiv2.appendChild(placeholderHeading2);
+    
+    col2Div.appendChild(placeholderDiv2);
+    
+    // Function to highlight numbers in a string and add data-toggle attribute
+    function highlightNumbers(text) {
+      return text.replace(/\d+(\.\d+)?/g, '<span style="color: var(--primary); font-size: 1.2em;" data-toggle="counter-up">$&</span>');
+    }
+    
+          
+          rowDiv.appendChild(col2Div);
+          
+          containerInnerDiv.appendChild(rowDiv);
+          containerDiv.appendChild(containerInnerDiv);
+          
+          document.getElementById('about').appendChild(containerDiv);
+    
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      renderHomepage();
+      new bootstrap.Carousel(document.getElementById('imageCarousel'));
+    });
+    
+    
+      </script>  
+    <!-- About End -->
+
+
+    <!-- Awards Start -->
+    <div class="container-xxl py-6 pb-5" id="skill">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <h1 class="display-5 mb-5">Our Sponsors</h1>
+                    <!-- <p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum clita dolor duo clita sit. Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum clita dolor duo clita sit. Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum clita dolor duo clita sit.</p> -->
+                    <div class="row align-items-center sponsers">
+                     <!-- <div class="sponsor-carousel">
+                        <img class="sponsor-img" src="./img/sponsers/s1.png" alt="Sponsor 1">
+                        <img class="sponsor-img" src="./img/sponsers/s2.png" alt="Sponsor 2">
+                        <img class="sponsor-img" src="./img/sponsers/s3.png" alt="Sponsor 3">
+                        <img class="sponsor-img" src="./img/sponsers/s4.png" alt="Sponsor 4">
+                        <img class="sponsor-img" src="./img/sponsers/s5.png" alt="Sponsor 5">
+                        <img class="sponsor-img" src="./img/sponsers/s6.png" alt="Sponsor 6">
+                        <img class="sponsor-img" src="./img/sponsers/s7.png" alt="Sponsor 7">
+                        <img class="sponsor-img" src="./img/sponsers/s8.png" alt="Sponsor 8">
+                        <img class="sponsor-img" src="./img/sponsers/s9.png" alt="Sponsor 9">
+                        <img class="sponsor-img" src="./img/sponsers/s10.png" alt="Sponsor 10">
+
+                    </div> -->
+
+                    <div class="row align-items-center sponsers" id="sponsorsContainer"></div>
+
+                    </div>
+                    <h3 class="mb-4">News</h3>
+                    <div class="row align-items-center" id="newsListContainer"></div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <ul class="nav nav-pills rounded border border-2 border-primary mb-5">
+                        <li class="nav-item w-50">
+                            <button class="nav-link w-100 py-3 fs-5 active" data-bs-toggle="pill" href="#tab-1">Awards</button>
+                        </li>
+                        <li class="nav-item w-50">
+                            <button class="nav-link w-100 py-3 fs-5" data-bs-toggle="pill" href="#tab-2">Positions</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane fade show p-0 active">
+                            <div id="awards" class="row gy-5 gx-4">
+                                <!-- <div class="col-sm-6">
+                                    <h5>Dean’s Doctoral Student Research Award</h5>
+                                    <hr class="text-primary my-2">
+                                    <div class="flex-row">
+                                        <p class="text-primary mb-1">2019</p>
+                                        <div class="flex-row-divider"></div>
+                                        <p class="text-primary mb-1">University of Maryland</p>
+                                    </div>
+                                    <h6 class="mb-0">First Place in Dean’s Doctoral Student Research Award, A. James Clark School of Engineering</h6>
+                                </div>
+                                
+                                <div class="col-sm-6">
+                                    <h5>Distinguished Dissertation Award</h5>
+                                    <hr class="text-primary my-2">
+                                     <div class="flex-row">
+                                    <p class="text-primary mb-1">2019</p>
+                                    <div class="flex-row-divider"></div>
+                                    <p class="text-primary mb-1">University of Maryland</p>
+                                    </div>
+                                    <h6 class="mb-0">Distinguished Dissertation Award in the department of Electrical and Computer Engineering</h6>
+                                </div>
+                                <div class="col-sm-6">
+                                    <h5>Jimmy H.C. Lin invention award</h5>
+                                    <hr class="text-primary my-2">
+                                     <div class="flex-row">
+                                    <p class="text-primary mb-1">2018</p>
+                                        <div class="flex-row-divider"></div>
+                                        <p class="text-primary mb-1">University of Maryland
+                                            </div>
+                                        </p>
+                                    <h6 class="mb-0">Received Jimmy H.C. Lin invention award in the department of Electrical and Computer Engineering</h6>
+                                </div>
+                                <div class="col-sm-6">
+                                    <h5>Invention of the Year award</h5>
+                                    <hr class="text-primary my-2">
+                                     <div class="flex-row">
+                                    <p class="text-primary mb-1">2018</p>
+                                    <div class="flex-row-divider"></div>
+                                    <p class="text-primary mb-1">University of Maryland</p>
+                                    </div>
+                                    <h6 class="mb-0">Received University of Maryland's Invention of the Year award for the best invention out of 169 submitted disclosures</h6>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div id="tab-2" class="tab-pane fade show p-0">
+                            <div class="row gy-5 gx-4" id="positions">
+                              <!-- Content will be dynamically generated here -->
+                            </div>
+                          </div>
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const sponsorsContainer = document.getElementById('sponsorsContainer');
+    const querySponsors = `*[_type == "sponsor"]{
+  name, "logoUrl": logo.asset->url
+}`;
+
+const queryAllNews = `*[_type == 'allNews'] {
+  title,
+  content
+}
+`;
+
+const queryAwards = `*[_type == 'awards'] {
+  award,
+  year,
+  givenBy,
+  description
+}
+`;
+const queryPositions =`*[_type == 'positions'] {
+  position,
+  location
+}`;
+
+// Function to create and append HTML elements
+function createAndAppendElement(parent, tagName, attributes) {
+  const element = document.createElement(tagName);
+  if (attributes) {
+    for (const attr in attributes) {
+      element.setAttribute(attr, attributes[attr]);
+    }
+  }
+  parent.appendChild(element);
+  return element;
+}
+
+
+
+
+// Function to fetch sponsors data from Sanity
+async function fetchSponsors() {
+  const response = await fetch( `https://${projectId}.api.sanity.io/v2021-10-21/data/query/${datasetName}?query=${encodeURIComponent(querySponsors)}`);
+  const data = await response.json();
+  return data.result;
+}
+
+// Async function to fetch all news
+async function fetchAllNews() {
+  const response = await fetch(`https://${projectId}.api.sanity.io/v2021-10-21/data/query/${datasetName}?query=${encodeURIComponent(queryAllNews)}`);
+  const data = await response.json();
+  return data.result || []; // Return an empty array if result is undefined
+}
+
+// Function to render all news
+async function renderAllNews() {
+  try {
+    const allNews = await fetchAllNews();
+    const newsListContainer = document.getElementById('newsListContainer');
+
+    allNews.forEach((newsItem, index) => {
+      const { title, content } = newsItem;
+
+      // Create HTML elements for the news item
+      const newsItemContainer = document.createElement('div');
+      const newsTitle = document.createElement('h6');
+      const newsContent = document.createElement('div');
+
+      // Set the title
+      newsTitle.textContent = title;
+
+      // Add a line separator between news items
+      if (index > 0) {
+        const separator = document.createElement('hr');
+        newsListContainer.appendChild(separator);
+      }
+
+      // Iterate over the content blocks
+      (content ?? []).forEach((block) => {
+        const blockElement = document.createElement('p');
+
+        // Handle different types of blocks
+        if (block._type === 'block') {
+          block.children.forEach((child) => {
+            if (child._type === 'span') {
+              const spanElement = document.createElement('span');
+              
+              // Handle marks
+              if (child.marks.includes('strong')) {
+                const strongElement = document.createElement('strong');
+                strongElement.textContent = child.text;
+                spanElement.appendChild(strongElement);
+              } else {
+                spanElement.textContent = child.text;
+              }
+              
+              blockElement.appendChild(spanElement);
+            }
+          });
+        } else if (block._type === 'list') {
+          const listElement = document.createElement(block.listType === 'bullet' ? 'ul' : 'ol');
+
+          block.children.forEach((listItem) => {
+            const listItemElement = document.createElement('li');
+
+            listItem.children.forEach((child) => {
+              if (child._type === 'span') {
+                const spanElement = document.createElement('span');
+                
+                // Handle marks
+                if (child.marks.includes('strong')) {
+                  const strongElement = document.createElement('strong');
+                  strongElement.textContent = child.text;
+                  spanElement.appendChild(strongElement);
+                } else {
+                  spanElement.textContent = child.text;
+                }
+                
+                // Handle hyperlinks
+                if (child.marks.includes('link')) {
+                  const linkElement = document.createElement('a');
+                  const linkDef = block.markDefs.find((def) => def._key === child.marks[0]);
+                  linkElement.href = linkDef.href;
+                  linkElement.textContent = spanElement.textContent;
+                  spanElement.textContent = '';
+                  spanElement.appendChild(linkElement);
+                }
+                
+                listItemElement.appendChild(spanElement);
+              }
+            });
+
+            listElement.appendChild(listItemElement);
+          });
+
+          blockElement.appendChild(listElement);
+        }
+
+        newsContent.appendChild(blockElement);
+      });
+
+    //   newsItemContainer.appendChild(newsTitle);
+      newsItemContainer.appendChild(newsContent);
+      newsListContainer.appendChild(newsItemContainer);
+    });
+  } catch (error) {
+    console.error('Error rendering news:', error);
+  }
+}
+
+// Call the function to render all news when the DOM is loaded
+document.addEventListener('DOMContentLoaded', renderAllNews);
+
+
+
+
+// Function to render sponsors logos
+async function renderSponsors() {
+  const sponsors = await fetchSponsors();
+console.log(sponsors,'sponsors')
+  const sponsorCarousel = createAndAppendElement(sponsorsContainer, 'div', { class: 'sponsor-carousel' });
+
+  sponsors.forEach(sponsor => {
+    console.log( sponsor.logoUrl,sponsor.name,'sponsors logo')
+    const sponsorImg = createAndAppendElement(sponsorCarousel, 'img', { class: 'sponsor-img', src: sponsor.logoUrl, alt: sponsor.name });
+  });
+}
+
+// Call the function to render sponsors logos
+renderSponsors();
+
+// ===================================== AWARDS & POSITIONS Script ====================================================
+
+async function fetchAwards() {
+  const response = await fetch( `https://${projectId}.api.sanity.io/v2021-10-21/data/query/${datasetName}?query=${encodeURIComponent(queryAwards)}`);
+  const data = await response.json();
+  return data.result;
+}
+
+async function fetchPositions() {
+  const response = await fetch(`https://${projectId}.api.sanity.io/v2021-10-21/data/query/${datasetName}?query=${encodeURIComponent(queryPositions)}`);
+  const data = await response.json();
+  return data.result || []; 
+}
+
+// // JSON data
+// var jsonData = [
+//     {
+//         "award": "National Science Foundation (NSF) CAREER Award",
+//         "year": 2023,
+//         "givenBy": "National Science Foundation",
+//         "description": null
+//     },
+//     {
+//         "year": 2017,
+//         "givenBy": "UMD Graduate school",
+//         "description": "Kulkarni Summer Research Fellowship: Awarded to only 4 students every year across all departments in UMD Graduate school\n",
+//         "award": "Kulkarni Summer Research Fellowship"
+//     },
+//     {
+//         "year": 2022,
+//         "givenBy": "Help Others ProgrammE (HOPE)",
+//         "description": "First place winner in the “Help Others ProgrammE (HOPE)” competition organized by the IEEE Industrial Electronics Society (IAS) – demonstrated a highly-efficient off-grid power conversion and energy storage solution for disadvantaged communities, which is a product of one of our ongoing US DOE funded projects\n",
+//         "award": "Help Others ProgrammE (HOPE)"
+//     },
+//     {
+//         "givenBy": "Electrical and Computer Engineering, UMD",
+//         "description": "Distinguished Dissertation Award in the department of Electrical and Computer Engineering, UMD\n",
+//         "award": "Distinguished Dissertation Award",
+//         "year": 2019
+//     },
+//     {
+//         "award": "National Science Foundation (NSF) CAREER Award",
+//         "year": 2023,
+//         "givenBy": "National Science Foundation",
+//         "description": null
+//     },
+//     {
+//         "year": 2017,
+//         "givenBy": "UMD Graduate school",
+//         "description": "Kulkarni Summer Research Fellowship: Awarded to only 4 students every year across all departments in UMD Graduate school\n",
+//         "award": "Kulkarni Summer Research Fellowship"
+//     },
+//     {
+//         "year": 2022,
+//         "givenBy": "Help Others ProgrammE (HOPE)",
+//         "description": "First place winner in the “Help Others ProgrammE (HOPE)” competition organized by the IEEE Industrial Electronics Society (IAS) – demonstrated a highly-efficient off-grid power conversion and energy storage solution for disadvantaged communities, which is a product of one of our ongoing US DOE funded projects\n",
+//         "award": "Help Others ProgrammE (HOPE)"
+//     },
+//     {
+//         "givenBy": "Electrical and Computer Engineering, UMD",
+//         "description": "Distinguished Dissertation Award in the department of Electrical and Computer Engineering, UMD\n",
+//         "award": "Distinguished Dissertation Award",
+//         "year": 2019
+//     }
+// ];
+
+// Function to fill the HTML template with JSON data
+async function renderAwards() {
+    var templateDiv = document.getElementById("awards");
+var jsonData =  await fetchAwards();
+    // Clear previous content
+    templateDiv.innerHTML = "";
+
+    // Loop through the JSON data and create HTML elements
+    for (var i = 0; i < jsonData.length; i++) {
+        var awardObj = jsonData[i];
+
+        // Create elements for each award
+        var colDiv = document.createElement("div");
+        colDiv.className = "col-sm-6";
+
+        var h5 = document.createElement("h5");
+        h5.textContent = awardObj.award || "";
+        colDiv.appendChild(h5);
+
+        var hr = document.createElement("hr");
+        hr.className = "text-primary my-2";
+        colDiv.appendChild(hr);
+
+        var flexRowDiv = document.createElement("div");
+        flexRowDiv.className = "flex-row";
+
+        var p1 = document.createElement("p");
+        p1.className = "text-primary mb-1";
+        p1.textContent = awardObj.year || "";
+        flexRowDiv.appendChild(p1);
+
+        var dividerDiv = document.createElement("div");
+        dividerDiv.className = "flex-row-divider";
+        flexRowDiv.appendChild(dividerDiv);
+
+        var p2 = document.createElement("p");
+        p2.className = "text-primary mb-1";
+        p2.textContent = awardObj.givenBy || "";
+        flexRowDiv.appendChild(p2);
+
+        colDiv.appendChild(flexRowDiv);
+
+        var h6 = document.createElement("h6");
+        h6.className = "mb-0";
+        h6.textContent = awardObj.description || "";
+        colDiv.appendChild(h6);
+
+        templateDiv.appendChild(colDiv);
+    }
+}
+
+// Call the function to fill the template
+renderAwards();
+
+// Function to generate the content dynamically
+async function renderPositions() {
+  var tab2Content = document.getElementById("positions");
+  var jsonData =  await fetchPositions();
+
+  jsonData.forEach(function(item) {
+    var col = document.createElement("div");
+    col.className = "col-sm-6";
+
+    var h6 = document.createElement("h6");
+    h6.textContent = item.location || "";
+    col.appendChild(h6);
+
+    var hr = document.createElement("hr");
+    hr.className = "text-primary my-2";
+    col.appendChild(hr);
+
+    var p = document.createElement("p");
+    p.className = "text-primary mb-1";
+    p.textContent = item.position || "";
+    col.appendChild(p);
+
+    tab2Content.appendChild(col);
+  });
+}
+
+// Call the function to generate the content
+renderPositions();
+
+
+    </script>
+    <!-- Awards End -->
+
+
+    <!-- Research Start -->
+    <div class="container-fluid bg-light my-5 py-6" id="service">
+        <div class="container">
+            <div class="row g-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-6">
+                    <h1 class="display-5 mb-0">Research Domains</h1>
+                </div>
+            </div>
+            <div class="row g-4" id="domainsContainer"></div>
+        </div>
+    </div>
+
+    <script>
+const queryDomains = `*[_type == "domain"]{
+  title,
+  description, "image": image.asset->url,
+domainNumber
+}`
+        async function fetchDomains() {
+          const response = await fetch( `https://${projectId}.api.sanity.io/v2021-10-21/data/query/${datasetName}?query=${encodeURIComponent(queryDomains)}`);
+          const data = await response.json();
+          return data.result;
+        }
+        
+        // Function to render sponsors logos
+        async function renderDomains() {
+           const domains = await fetchDomains();
+        console.log(domains,'domains')
+        const container = document.getElementById('domainsContainer');
+        
+        domains.forEach(domain => {
+          const colDiv = document.createElement('div');
+          colDiv.className = 'col-lg-6 wow fadeInUp';
+          colDiv.setAttribute('data-wow-delay', '0.1s');
+        
+          const serviceItemDiv = document.createElement('div');
+          serviceItemDiv.className = 'service-item d-flex flex-column flex-sm-row bg-white rounded h-100 p-4 p-lg-5';
+        
+          const bgIconDiv = document.createElement('div');
+          bgIconDiv.className = 'bg-icon flex-shrink-0 mb-3';
+          const image = document.createElement('img');
+          image.className = 'domain_image';
+          image.src = domain.image; // Replace with the image URL from the data
+          bgIconDiv.appendChild(image);
+        
+          const msSmDiv = document.createElement('div');
+          msSmDiv.className = 'ms-sm-4';
+        
+          const titleLink = document.createElement('a');
+          titleLink.href = '#project';
+        
+          const titleH4 = document.createElement('h4');
+          titleH4.className = 'mb-3';
+          titleH4.textContent = domain.title;
+        
+          const descriptionContainer = document.createElement('div');
+        
+          domain.description.forEach(block => {
+            const blockElement = document.createElement('div');
+        
+            if (block.listItem === 'bullet') {
+              const listItem = document.createElement('li');
+              listItem.textContent = block.children[0].text;
+              blockElement.appendChild(listItem);
+            } else {
+              const paragraph = document.createElement('p');
+              paragraph.textContent = block.children[0].text;
+              blockElement.appendChild(paragraph);
+            }
+        
+            descriptionContainer.appendChild(blockElement);
+          });
+        
+          titleLink.appendChild(titleH4);
+          msSmDiv.appendChild(titleLink);
+          msSmDiv.appendChild(descriptionContainer);
+          serviceItemDiv.appendChild(bgIconDiv);
+          serviceItemDiv.appendChild(msSmDiv);
+          colDiv.appendChild(serviceItemDiv);
+          container.appendChild(colDiv);
+        });
+        
+        }
+        
+        renderDomains();
+        
+        </script>
+    <!-- Research End -->
+<!-- Team Start -->
+<div class="container-xxl py-6 pb-5" id="team">
+    <div class="container">
+      <div class="row g-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="col-lg-6">
+          <h1 class="display-5 mb-0">Team Members</h1>
+        </div>
+        <div class="col-lg-6 text-lg-end">
+          <ul class="nav nav-tabs" id="roleTabs"></ul>
+        </div>
+      </div>
+      <div id="team-members" class="row g-4"></div>
+    </div>
+  </div>
+  
+  <!-- ----------------------------- TEAM MEMBERS SCRIPT --------------------------------------------------- -->
+  <script>
+    const teamMembersContainer = document.getElementById('team-members');
+    const roleTabs = document.getElementById('roleTabs');
+    let roles = {}; // Define the roles variable globally
+  
+    const queryBio = `*[_type == 'author']{
+      name,
+      role,
+      email,
+      bio,
+      "imageUrl": image.asset->url,
+      linkedin
+    }`;
+  
+    const fetchBio = async () => {
+      try {
+        const response = await fetch(
+          `https://${projectId}.api.sanity.io/v2021-10-21/data/query/${datasetName}?query=${encodeURIComponent(
+            queryBio
+          )}`
+        );
+  
+        if (!response.ok) {
+          throw new Error('Error fetching team members');
+        }
+  
+        const { result } = await response.json();
+        console.log('Team Data:', result);
+        const teamMembersData = result;
+        console.log('Team Members:', teamMembersData);
+  
+        renderTeamMembers(teamMembersData);
+  
+      } catch (error) {
+        console.error('Error fetching team members:', error);
+      }
+  
+      // Call fetchBio again after a certain interval (e.g., every 10 seconds)
+      // setTimeout(fetchBio, 10000);
+    };
+  
+    const renderTeamMembers = (teamMembersData) => {
+      teamMembersContainer.innerHTML = ''; // Clear the container before rendering
+  
+      roles = {}; // Reset the roles object
+  
+      // Group team members by roles
+      teamMembersData.forEach((member) => {
+        if (roles[member.role]) {
+          roles[member.role].push(member);
+        } else {
+          roles[member.role] = [member];
+        }
+      });
+  
+      // Render tabs for each role
+      for (const role in roles) {
+        const tabLink = document.createElement('a');
+        tabLink.classList.add('nav-link');
+        tabLink.setAttribute('data-role', role);
+        tabLink.textContent = role;
+        roleTabs.appendChild(tabLink);
+      }
+  
+      // Render team members based on the initial active tab
+      const initialTab = roleTabs.querySelector('.nav-link');
+      if (initialTab) {
+        initialTab.classList.add('active');
+        const initialRole = initialTab.getAttribute('data-role');
+        renderMembersByRole(initialRole);
+      }
+    };
+  
+    const renderMembersByRole = (role) => {
+      const teamMembersData = roles[role];
+  
+      if (teamMembersData && teamMembersData.length > 0) {
+        teamMembersContainer.innerHTML = '';
+  
+        teamMembersData.forEach((member) => {
+          const colDiv = document.createElement('div');
+          colDiv.classList.add('col-lg-4', 'col-md-6', 'wow', 'fadeInUp');
+          colDiv.setAttribute('data-wow-delay', '0.1s');
+  
+          const teamItemDiv = document.createElement('div');
+          teamItemDiv.classList.add('team-item', 'position-relative');
+  
+          const imgElement = document.createElement('img');
+          imgElement.classList.add('img-fluid', 'rounded');
+          imgElement.setAttribute('src', member.imageUrl);
+          imgElement.setAttribute('alt', member.name);
+  
+          const teamTextDiv = document.createElement('div');
+          teamTextDiv.classList.add('team-text', 'bg-white', 'rounded-end', 'p-4');
+  
+          const infoDiv = document.createElement('div');
+  
+          const nameElement = document.createElement('h5');
+          nameElement.textContent = member.name;
+  
+          const roleElement = document.createElement('span');
+          roleElement.textContent = member.role;
+  
+          infoDiv.appendChild(nameElement);
+          infoDiv.appendChild(roleElement);
+  
+          const linkedInIcon = document.createElement('i');
+          linkedInIcon.classList.add('bi', 'bi-linkedin', 'text-primary', 'fs-2');
+linkedInIcon.style.cursor = 'pointer'; 
+
+  
+          teamTextDiv.appendChild(infoDiv);
+          teamTextDiv.appendChild(linkedInIcon);
+          linkedInIcon.addEventListener('click', () => {
+  window.open(member.linkedin, '_blank');
+});
+
+  
+          teamItemDiv.appendChild(imgElement);
+          teamItemDiv.appendChild(teamTextDiv);
+  
+          colDiv.appendChild(teamItemDiv);
+  
+          teamMembersContainer.appendChild(colDiv);
+        });
+      } else {
+        teamMembersContainer.innerHTML = '<p>No team members found for this role.</p>';
+      }
+    };
+  
+    roleTabs.addEventListener('click', (event) => {
+      if (event.target.tagName === 'A' && event.target.getAttribute('data-role')) {
+        const selectedRole = event.target.getAttribute('data-role');
+        renderMembersByRole(selectedRole);
+  
+        // Remove the active class from all tab links
+        const tabLinks = roleTabs.getElementsByClassName('nav-link');
+        Array.from(tabLinks).forEach((link) => {
+          link.classList.remove('active');
+        });
+  
+        // Add the active class to the clicked tab link
+        event.target.classList.add('active');
+      }
+    });
+  
+    fetchBio();
+  </script>
+  
+    <!-- Team End -->
+
+
+    <!-- Projects Start -->
+    <div class="container-fluid bg-light my-5 py-6" id="project">
+        <div class="container">
+            <div class="row g-5 mb-5 align-items-center wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-6">
+                    <h1 class="display-5 mb-0">Our Projects</h1>
+                </div>
+                <div class="col-lg-6 text-lg-end" id="portfolio-container">
+                    <select id="category-filter">
+                        <option value="all">All Categories</option>
+                        <option value="1">Extreme Environment Power Electronics</option>
+                        <option value="2">Microgrid and Distributed Energy Resources</option>
+                        <option value="3">Transportation Electrification</option>
+                        <option value="4">Grid integration of energy storage and renewable energy</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row g-4 portfolio-container wow fadeInUp" data-wow-delay="0.1s">
+            </div>
+            </div>
+          
+        </div>
+    </div>
+
+    <script>
+  const queryProjects = `*[_type == "project"]{
+  title,
+  "author": author[]->name,
+    "sponsors":sponsor[]-> name,
+  "categories":  categories[]->title,
+  "domainNumber":categories[]->domainNumber,
+  "mainImage": mainImage.asset->url,
+  publishedAt,
+  youtubeLink,
+  body[]{
+    ...,
+    _type == "image" => {
+      "imageURL": asset->url
+    }
+  }
+}`
+        async function fetchProjects() {
+          const response = await fetch( `https://${projectId}.api.sanity.io/v2021-10-21/data/query/${datasetName}?query=${encodeURIComponent(queryProjects)}`);
+          const data = await response.json();
+          return data.result;
+        }
+        
+        let projects;
+        
+        async function renderProjects() {
+  projects = await fetchProjects();
+  const container = document.querySelector('.portfolio-container');
+
+  projects.forEach((item, index) => {
+  const portfolioItem = document.createElement('div');
+  portfolioItem.classList.add('col-lg-4', 'col-md-6', 'portfolio-item', `domain_${item.domainNumber}`);
+
+  const portfolioImg = document.createElement('div');
+  portfolioImg.classList.add('portfolio-img', 'rounded', 'overflow-hidden');
+
+  const img = document.createElement('img');
+  img.classList.add('img-fluid');
+  img.src = item.mainImage;
+  img.alt = '';
+
+  const portfolioBtn = document.createElement('div');
+  portfolioBtn.classList.add('portfolio-btn');
+
+  const btnDiv = document.createElement('div');
+  btnDiv.classList.add('d-flex');
+
+  const eyeBtn = document.createElement('a');
+  eyeBtn.classList.add('btn', 'btn-lg-square', 'btn-outline-secondary', 'border-2', 'mx-1');
+  eyeBtn.setAttribute('onclick', `openPopup(${index})`);
+
+  const eyeIcon = document.createElement('i');
+  eyeIcon.classList.add('bi', 'bi-eye');
+
+  eyeBtn.appendChild(eyeIcon);
+  btnDiv.appendChild(eyeBtn);
+
+  const youtubeBtn = document.createElement('a');
+  youtubeBtn.classList.add('btn', 'btn-lg-square', 'btn-outline-secondary', 'border-2', 'mx-1');
+  youtubeBtn.setAttribute('href', item.youtubeLink);
+  youtubeBtn.setAttribute('target', '_blank');
+
+  const youtubeIcon = document.createElement('i');
+  youtubeIcon.classList.add('bi', 'bi-youtube');
+
+  youtubeBtn.appendChild(youtubeIcon);
+  btnDiv.appendChild(youtubeBtn);
+
+  portfolioBtn.appendChild(btnDiv);
+
+  const portfolioTitle = document.createElement('h4');
+  portfolioTitle.classList.add('portfolio-title');
+  portfolioTitle.textContent = item.title;
+
+  portfolioImg.appendChild(img);
+  portfolioImg.appendChild(portfolioTitle);
+  portfolioImg.appendChild(portfolioBtn);
+
+  portfolioItem.appendChild(portfolioImg);
+
+  container.appendChild(portfolioItem);
+});
+        }
+
+function openPopup(index) {
+  const blogData = projects[index];
+
+  const sponsors = blogData.sponsors ? blogData.sponsors.join(", ") : "No sponsors listed";
+
+  const popupHTML = `
+    <div class="popup">
+      <div class="popup-content">
+        <span class="popup-close" onclick="closePopup()">&times;</span>
+        <h2>${blogData.title}</h2>
+        <div class="popup-details">
+          <div class="popup-image">
+            <img src="${blogData.mainImage}" alt="Main Image">
+          </div>
+          <div class="popup-info">
+            <p><strong>Author:</strong> ${getAuthorNames(blogData.author)}</p>
+            <p><strong>Sponsors:</strong> ${sponsors}</p>
+            <p><strong>Categories:</strong> ${getCategoryNames(blogData.categories)}</p>
+            <p><strong>Published At:</strong> ${formatDate(blogData.publishedAt)}</p>
+          </div>
+        </div>
+        <div class="popup-body">${renderBody(blogData.body)}</div>
+      </div>
+    </div>
+  `;
+
+  document.body.innerHTML += popupHTML;
+}
+
+
+
+// Add an event listener to the category filter select element
+const categoryFilter = document.getElementById('category-filter');
+categoryFilter.addEventListener('change', applyCategoryFilter);
+
+// Function to apply the category filter
+function applyCategoryFilter() {
+    const selectedCategory = categoryFilter.value;
+
+    // Get all portfolio items
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    // Loop through each portfolio item and show/hide based on the selected category
+    portfolioItems.forEach((item) => {
+        if (selectedCategory === 'all' || item.classList.contains(`domain_${selectedCategory}`)) {
+            item.style.display = 'block'; // Show the item
+        } else {
+            item.style.display = 'none'; // Hide the item
+        }
+    });
+}
+
+
+      
+const container = document.querySelector('.portfolio-container');
+
+
+        // Ensure the DOM is loaded before executing the code
+        document.addEventListener('DOMContentLoaded', renderProjects);
+
+        // ===============================================================================
+
+    
+
+        function closePopup() {
+            // Remove the popup from the DOM
+            const popup = document.querySelector('.popup');
+            if (popup) {
+                popup.remove();
+            }
+        }
+
+
+function getAuthorNames(authors) {
+  return authors.map((author) => author).join(", ");
+}
+
+function getCategoryNames(categories) {
+  return categories.map((category) => category).join(", ");
+}
+
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        function renderBody(body) {
+  let content = "";
+  let isBulletList = false;
+
+  body.forEach((block) => {
+    if (block._type === "block") {
+      const text = block.children
+        .map((child) => {
+          let formattedText = child.text;
+
+          child.marks.forEach((mark) => {
+            switch (mark) {
+              case "strong":
+                formattedText = `<strong>${formattedText}</strong>`;
+                break;
+              case "underline":
+                formattedText = `<u>${formattedText}</u>`;
+                break;
+              case "em":
+                formattedText = `<em>${formattedText}</em>`;
+                break;
+              case "code":
+                formattedText = `<code>${formattedText}</code>`;
+                break;
+              case "strikethrough":
+                formattedText = `<del>${formattedText}</del>`;
+                break;
+              case "subscript":
+                formattedText = `<sub>${formattedText}</sub>`;
+                break;
+              case "superscript":
+                formattedText = `<sup>${formattedText}</sup>`;
+                break;
+            }
+          });
+
+          return formattedText;
+        })
+        .join("");
+
+      if (block.listItem === "bullet") {
+        if (!isBulletList) {
+          content += "<ul>";
+          isBulletList = true;
+        }
+        content += `<li>${text}</li>`;
+      } else {
+        if (isBulletList) {
+          content += "</ul>";
+          isBulletList = false;
+        }
+        content += `<p>${text}</p>`;
+      }
+    } else if (block._type === "image") {
+      content += `<img src="${block.imageURL}" alt="Image" />`;
+    }
+  });
+
+  if (isBulletList) {
+    content += "</ul>";
+  }
+
+  return content;
+}
+
+
+
+      </script>
+    <!-- Projects End -->
+
+    <!-- Publications Start -->
+    <div class="container-fluid bg-light my-5 py-6" id="publication">
+        <div class="container">
+          <div class="row g-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="col-lg-6">
+              <h1 class="display-5 mb-0">Publications</h1>
+            </div>
+            <div class="col-lg-6" id="publication-tabs"></div>
+          </div>
+            <div class="col-lg-6 text-lg-end">
+            </div>
+          </div>
+          <div class="row g-4">
+          <div class="row g-4" id="publication-cards">
+            <!-- Publication cards will be dynamically generated here -->
+          </div>
+        </div>
+      </div>
+      
+      <style>
+        #publication-tabs {
+          display: flex;
+          align-items: center;
+        }
+      
+        .publication-tab {
+          cursor: pointer;
+          padding: 5px 10px;
+          margin-right: 10px;
+          border-radius: 5px;
+          background-color: #f2f2f2;
+          transition: background-color 0.3s ease;
+        }
+      
+        .publication-tab:hover {
+          background-color: #e6e6e6;
+        }
+      
+        .publication-tab.active {
+          background-color: var(--primary);
+color : white        }
+      </style>
+      
+      
+      <script>
+
+const queryPublications = `*[_type == 'publication']{
+  category,
+  title,
+  link,
+  publishedBy,
+  publishedAt
+}
+`;
+        const fetchPublications = async () => {
+          try {
+            const response = await fetch(
+                `https://${projectId}.api.sanity.io/v2021-10-21/data/query/${datasetName}?query=${encodeURIComponent(queryPublications)}`        );
+      
+            if (!response.ok) {
+              throw new Error('Error fetching Teaching');
+            }
+      
+            const { result } = await response.json();
+            const publicationsData = result;
+            renderPublications(publicationsData);
+      
+            // renderTeamMembers(teamMembersData);
+          } catch (error) {
+            console.error('Error fetching news:', error);
+          }
+        }
+
+      renderPublications = (publicationsData) =>{
+      
+        const data = publicationsData
+        
+        const publicationContainer = document.querySelector('#publication-cards');
+        const tabsContainer = document.querySelector('#publication-tabs');
+      
+        // Create the publication cards
+        data.forEach(item => {
+          createPublicationCard(item);
+        });
+      
+        function createPublicationCard(item) {
+          const card = document.createElement('div');
+          card.classList.add('col-lg-6', 'wow', 'fadeInUp');
+          card.setAttribute('data-wow-delay', '0.1s');
+          const cardContent = `<div class="service-item d-flex flex-column flex-sm-row bg-white rounded h-100 p-4">
+  <div class="ms-sm">
+    <h6 class="mb-3"><a href="${item.link}" target="_blank">${item.title}</a></h6>
+    <span>Published by:</span> <span style="font-style: italic; font-weight: bold; color: black;"> ${item.publishedBy}</span><br>
+        <span>Published at: ${item.publishedAt}</span>
+  </div>
+</div>
+
+          `;
+          card.innerHTML = cardContent;
+          publicationContainer.appendChild(card);
+        }
+      
+        function createTab(category) {
+          const tab = document.createElement('div');
+          tab.classList.add('publication-tab');
+          if (category === 'all') {
+            tab.classList.add('active');
+          }
+          tab.textContent = category;
+          tab.addEventListener('click', () => filterByCategory(category));
+          tabsContainer.appendChild(tab);
+        }
+      
+        function filterByCategory(category) {
+          // Clear existing cards
+          publicationContainer.innerHTML = '';
+      
+          // Filter and create cards for the selected category
+          if (category === 'all') {
+            data.forEach(item => {
+              createPublicationCard(item);
+            });
+          } else {
+            const filteredData = data.filter(item => item.category === category);
+            filteredData.forEach(item => {
+              createPublicationCard(item);
+            });
+          }
+      
+          // Update active tab
+          const tabs = Array.from(tabsContainer.children);
+          tabs.forEach(tab => {
+            if (tab.textContent === category) {
+              tab.classList.add('active');
+            } else {
+              tab.classList.remove('active');
+            }
+          });
+        }
+      
+        // Create the tabs
+        const categories = ['all', ...Array.from(new Set(data.map(item => item.category)))]; // Get unique categories and add "all"
+        categories.forEach(category => {
+          createTab(category);
+        });
+      }  
+
+      fetchPublications()
+      </script>
+      
+    <!-- Publications End -->
+ 
+      <!-- Teaching Start -->
+      <div class="container-fluid bg-light my-5 py-6" id="teaching">
+        <div class="container">
+            <div class="row g-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-6">
+                    <h1 class="display-5 mb-0">Teaching</h1>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <!-- <a class="btn btn-primary py-3 px-5" href="">Sample Button</a> -->
+                </div>
+            </div>
+            <div id="courses" class="row g-4">
+               
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Teaching End -->
+
+
+    <!-- Testimonial Start -->
+    <style>
+.miscellaneous-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Breakpoint for mobile devices */
+@media only screen and (max-width: 767px) {
+    .miscellaneous-container {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+      
+        .miscellaneous-container > div {
+          flex: 1;
+          padding: 12px 20px;
+          margin: 6px;
+          border-radius: 12px;
+          background-color: #ffffff;
+          height: 100%;
+        }
+
+        .miscellaneous-container >div > h3{
+            color: var(--primary);
+        }
+      
+        .gallery {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          overflow-x: scroll;
+          overflow-y: hidden;
+        }
+      
+        .gallery img {
+          width: calc(25% - 20px); /* Adjust as needed */
+          margin: 10px;
+          object-fit: cover;
+        }
+      
+        /* Image Popup Styles */
+        .image-popup {
+          display: none;
+          position: fixed;
+          z-index: 9999;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.8);
+        }
+      
+        .image-popup-content {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+        }
+      
+        #popupImage {
+          max-width: 90%;
+          max-height: 90%;
+        }
+      
+        .close-button {
+          position: absolute;
+          top: 20px;
+          right: 30px;
+          font-size: 30px;
+          color: #fff;
+          cursor: pointer;
+        }
+        .gallery-images-container{
+            display: flex;
+        }
+        .gallery-image-container{
+            min-width: 25%;
+            padding: 12px;
+        }
+        .gallery-image-container > img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+            aspect-ratio: 4/3;
+        }
+        
+      </style>
+      
+      <div class="container-fluid bg-light py-5 my-5" id="miscellaneous">
+        <div class="container-fluid py-5">
+          <h1 class="display-5 text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Miscellaneous</h1>
+          <div class="row justify-content-start">
+            <div class="miscellaneous-container">
+              <!-- Miscellaneous items will be added dynamically from the backend -->
+            </div>
+          </div>
+          <h3 class="text-center" style="margin-top: 32px;color: var(--primary);
+          ">Gallery</h3>
+          <div class="gallery">
+            <!-- Images will be added dynamically from the backend -->
+          </div>
+        </div>
+      </div>
+      
+    
+      <!-- Image Popup -->
+      <div id="imagePopup" class="image-popup">
+        <div class="image-popup-content">
+          <img id="popupImage" src="" alt="Popup Image">
+          <span class="close-button">&times;</span>
+        </div>
+      </div>
+      
+      
+      <script>
+        const queryMiscellaneous = `*[_type == 'miscellaneous'] {
+          caption,
+          description
+        }`;
+        
+        const queryGallery = `*[_type == 'gallery'] {
+          title,
+          images[] {
+            "imageUrl": image.asset->url,
+            caption
+          }
+        }`;
+      
+        const renderGallery = (galleryData) => {
+  // Get the gallery container
+  const galleryContainer = document.querySelector('.gallery');
+
+  // Clear the existing gallery images
+  galleryContainer.innerHTML = '';
+
+  // Iterate through each gallery in the galleryData
+  galleryData.forEach(gallery => {
+
+    // Create a container for the gallery images
+    const galleryImagesContainer = document.createElement('div');
+    galleryImagesContainer.classList.add('gallery-images-container');
+
+    // Iterate through each image in the gallery
+    gallery.images.forEach(image => {
+      // Create a container for each image
+      const imageContainer = document.createElement('div');
+      imageContainer.classList.add('gallery-image-container');
+
+      // Create an image element
+      const img = document.createElement('img');
+      img.src = image.imageUrl;
+      img.alt = image.caption;
+
+      // Create a caption element
+      const caption = document.createElement('p');
+      caption.textContent = image.caption;
+
+      // Add the image and caption to the image container
+      imageContainer.appendChild(img);
+    //   imageContainer.appendChild(caption);
+
+      // Add event listener to each image for expanding in popup
+      imageContainer.addEventListener('click', () => {
+        // Set the clicked image source as the popup image source
+        popupImage.src = img.src;
+
+        // Show the image popup
+        imagePopup.style.display = 'block';
+      });
+
+      // Add the image container to the gallery images container
+      galleryImagesContainer.appendChild(imageContainer);
+    });
+
+    // Add the gallery images container to the gallery container
+    galleryContainer.appendChild(galleryImagesContainer);
+  });
+};
+
+// Fetch the gallery data from the backend
+const fetchGallery = async () => {
+  try {
+    const response = await fetch(
+      `https://${projectId}.api.sanity.io/v2021-10-21/data/query/${datasetName}?query=${encodeURIComponent(queryGallery)}`
+    );
+
+    if (!response.ok) {
+      throw new Error('Error fetching gallery data');
+    }
+
+    const responseData = await response.json();
+    const galleryData = responseData.result; // Extract the result array
+    renderGallery(galleryData);
+  } catch (error) {
+    console.error('Error fetching gallery data:', error);
+  }
+};
+
+// Call the function to fetch and render the gallery data
+fetchGallery();
+
+      
+const fetchMiscellaneous = async () => {
+  try {
+    const response = await fetch(
+      `https://${projectId}.api.sanity.io/v2021-10-21/data/query/${datasetName}?query=${encodeURIComponent(queryMiscellaneous)}`
+    );
+
+    if (!response.ok) {
+      throw new Error('Error fetching miscellaneous data');
+    }
+
+    const responseData = await response.json();
+    const miscellaneousData = responseData.result; // Extract the result array
+
+    // Update the DOM with the miscellaneous data
+    const miscellaneousContainer = document.querySelector('.miscellaneous-container');
+
+    miscellaneousData.forEach(item => {
+      const div = document.createElement('div');
+      const h3 = document.createElement('h3');
+      const description = document.createElement('div');
+
+      h3.textContent = item.caption;
+
+      // Traverse the nested structure to extract the text content
+      const descriptionText = item.description
+        .map(block => {
+          const childrenText = block.children.map(child => {
+            if (child._type === 'span') {
+              let text = child.text;
+              if (child.marks.includes('strong')) {
+                text = '<strong>' + text + '</strong>';
+              }
+
+              // Check if the text contains "https://" and replace it with a hyperlink
+              if (text.includes('https://')) {
+                text = text.replace(
+                  /https:\/\/[^\s]+/g,
+                  '<a href="$&" target="_blank" rel="noopener noreferrer">$&</a>'
+                );
+              }
+
+              return text;
+            }
+            return '';
+          }).join('');
+
+          return block.style === 'normal' ? childrenText : '<p>' + childrenText + '</p>';
+        })
+        .join('<br/>');
+
+      description.innerHTML = descriptionText;
+
+      div.appendChild(h3);
+      div.appendChild(description);
+
+      miscellaneousContainer.appendChild(div);
+    });
+  } catch (error) {
+    console.error('Error fetching miscellaneous data:', error);
+  }
+};
+
+// Call the function to fetch and render the miscellaneous data
+fetchMiscellaneous();
+
+      
+        // Close the image popup on close button click
+        const closeButton = document.querySelector('.close-button');
+        closeButton.addEventListener('click', () => {
+          imagePopup.style.display = 'none';
+        });
+      </script>
+      
+    <!-- Testimonial End -->
+
+    
+
+
+    <!-- Contact Start -->
+    <div class="container-xxl pb-5" id="contact">
+        <div class="container py-5">
+            <div class="row g-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-6">
+                    <h1 class="display-5 mb-0">Let's Work Together</h1>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <a class="btn btn-primary py-3 px-5" href="">Say Hello</a>
+                </div>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <p class="mb-2">My office:</p>
+                    <h3 class="fw-bold">Technology Center
+                        Arizona State University
+                        ,Room 150
+                        6075, Mesa
+                        Arizona - 85212</h3>
+                    <hr class="w-100">
+                    <p class="mb-2">Call me:</p>
+                    <h3 class="fw-bold">+1-480-727-5275</h3>
+                    <hr class="w-100">
+                    <p class="mb-2">Mail me:</p>
+                    <h3 class="fw-bold">ayan.mallik@asu.edu</h3>
+                    <hr class="w-100">
+                    <p class="mb-2">Follow us:</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-primary me-2" href=""><i class="bi bi-twitter"></i></a>
+                        <a class="btn btn-square btn-primary me-2" href=""><i class="bi bi-facebook"></i></a>
+                        <a class="btn btn-square btn-primary me-2" href=""><i class="bi bi-youtube"></i></a>
+                        <a class="btn btn-square btn-primary me-2" href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-7 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <p class="mb-4">The contact form is currently inactive.</p>
+                    <form id="contactForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                    <label for="name">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                                    <label for="email">Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                                    <label for="subject">Subject</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px" required></textarea>
+                                    <label for="message">Message</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script>document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+    
+        // Get form inputs
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var subject = document.getElementById('subject').value;
+        var message = document.getElementById('message').value;
+    
+        // Prepare the data object
+        var data = {
+            name: name,
+            email: email,
+            subject: subject,
+            message: message
+        };
+    
+        // Make the HTTP POST request to Sanity.io backend
+        fetch(`https://${projectId}.api.sanity.io/v2021-10-21/data/query/${datasetName}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ 
+                mutations: [
+                    {
+                        create: {
+                            _type: 'contactForm',
+                            ...data
+                        }
+                    }
+                ]
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle the response if needed
+            console.log('Data posted successfully:', data);
+    
+            // Reset form inputs
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('subject').value = '';
+            document.getElementById('message').value = '';
+        })
+        .catch(error => {
+            // Handle any errors
+            console.error('Error:', error);
+        });
+    });
+    </script>
+    <!-- Contact End -->
+
+
+   <!-- Map Start -->
+   <div class="container-xxl pt-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container-xxl pt-5 px-0">
+        <div class="bg-dark">
+            <iframe
+            src="https://www.google.com/maps?q=6075 Innovation Way W, Mesa, AZ 85212&output=embed"
+            frameborder="0" style="width: 100%; height: 450px; border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0"></iframe>
+        </div>
+    </div>
+</div>
+<!-- Map End -->
+
+
+    <!-- Copyright Start -->
+    <div class="container-fluid bg-dark text-white py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom text-secondary" href="#">Peace Labs at ASU</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        Designed By <a class="border-bottom text-secondary" href="#">Peace labs</a>
+                        <br>Distributed By: <a class="border-bottom" href="#" target="_blank">Peace labs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/typed/typed.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!--  Javascript -->
+    <script src="js/main.js"></script>
+    <script>
+    // To Play/Pause Latest News on Hover 
+        const newsList = document.querySelector('.news-list');
+        
+        newsList.addEventListener('mouseenter', () => {
+          newsList.style.animationPlayState = 'paused';
+        });
+        
+        newsList.addEventListener('mouseleave', () => {
+          newsList.style.animationPlayState = 'running';
+        });
+
+        const sponsorCarousel = document.querySelector('.sponsor-carousel');
+
+function startAnimation() {
+    sponsorCarousel.style.animationPlayState = 'running';
+}
+
+function pauseAnimation() {
+    sponsorCarousel.style.animationPlayState = 'paused';
+}
+
+sponsorCarousel.addEventListener('mouseenter', pauseAnimation);
+sponsorCarousel.addEventListener('mouseleave', startAnimation);
+
+        </script>
+
+<script>
+
+    const query = `*[_type == 'news']{ title, description }`;
+
+    const fetchNews = async () => {
+      try {
+        const response = await fetch(
+          `https://${projectId}.api.sanity.io/v2021-10-21/data/query/${datasetName}?query=${encodeURIComponent(query)}`
+        );
+
+        if (!response.ok) {
+          throw new Error('Error fetching news');
+        }
+
+        const { result } = await response.json();
+        renderNewsList(result);
+      } catch (error) {
+        console.error('Error fetching news:', error);
+      }
+
+      // Call fetchNews again after a certain interval (e.g., every 10 seconds)
+    //   setTimeout(fetchNews, 10000);
+    };
+
+    const renderNewsList = (newsData) => {
+      newsList.innerHTML = '';
+
+      newsData.forEach((item) => {
+        const listItem = document.createElement('li');
+        const titleElement = document.createElement('b');
+        titleElement.textContent = `${item.title}: `;
+        listItem.appendChild(titleElement);
+
+        item.description[0].children.forEach((child) => {
+          const childElement = document.createElement('span');
+          if (child.marks && child.marks.includes('strong')) {
+            const boldElement = document.createElement('b');
+            boldElement.textContent = child.text;
+            childElement.appendChild(boldElement);
+          } else {
+            childElement.textContent = child.text;
+          }
+          listItem.appendChild(childElement);
+        });
+
+        newsList.appendChild(listItem);
+      });
+    };
+
+    fetchNews();
+
+  </script>
+
+
+    <!-- ----------------------------- TEACHING SCRIPT --------------------------------------------------- -->
+    <script>
+        // const teamMembersContainer = document.getElementById('team-members');
+        const queryTeaching = `*[_type == "teaching"]{
+      title,subtitle,catalog, resources,tags,description
+    }`;
+        const fetchTeaching = async () => {
+          try {
+            const response = await fetch(
+                `https://${projectId}.api.sanity.io/v2021-10-21/data/query/${datasetName}?query=${encodeURIComponent(queryTeaching)}`        );
+      
+            if (!response.ok) {
+              throw new Error('Error fetching Teaching');
+            }
+      
+            const { result } = await response.json();
+            console.log('teaching Data 1', result);
+            const teachingData = result;
+            populateCourses(teachingData);
+      
+            // renderTeamMembers(teamMembersData);
+          } catch (error) {
+            console.error('Error fetching news:', error);
+          }
+      
+          // Call fetchBio again after a certain interval (e.g., every 10 seconds)
+        //   setTimeout(fetchBio, 10000);
+        };
+// const teachingData = [{"tags":["Fall 2020","Spring 2022"],"description":"Test","title":"Test","catalog":"https://peacelabasu.s3-us-west-1.amazonaws.com/Courses/Power+Electronics_Graduate_Fall2020_Syllabus_Mallik.pdf","resources":[{"title":"TEstkmjcls","link":"https://peacelabasu.s3-us-west-1.amazonaws.com/Courses/Power+Electronics_Graduate_Fall2020_Syllabus_Mallik.pdf","_key":"37a713a293b0"}]}];
+
+const populateCourses = (teachingData) => {
+  const coursesContainer = document.getElementById('courses');
+
+  teachingData.forEach((course, index) => {
+    const courseItem = document.createElement('div');
+    courseItem.className = 'col-lg-6 wow fadeInUp';
+    courseItem.setAttribute('data-wow-delay', '0.1s');
+
+    const serviceItem = document.createElement('div');
+    serviceItem.className = 'service-item d-flex flex-column  bg-white rounded h-100 p-4 p-lg-5';
+
+    const courseContent = document.createElement('div');
+    courseContent.className = 'ms-sm-4';
+
+    const courseTitle = document.createElement('h4');
+    courseTitle.className = 'mb-1 course';
+
+    const catalogLink = document.createElement('a');
+    catalogLink.href = course.catalog;
+    catalogLink.textContent = course.title;
+    courseTitle.appendChild(catalogLink);
+
+    const courseSubtitle = document.createElement('p');
+    courseSubtitle.className = 'subtitle';
+    const subtitleText = document.createElement('strong');
+    subtitleText.textContent = course.subtitle;
+    courseSubtitle.appendChild(subtitleText);
+
+    const courseTerm = document.createElement('h6');
+    courseTerm.className = 'mb-3 course_term';
+    courseTerm.textContent = course.tags.join(', ');
+
+    const courseDescription = document.createElement('span');
+    courseDescription.className = 'course_description';
+    courseDescription.textContent = course.description;
+
+    courseContent.appendChild(courseTitle);
+    courseContent.appendChild(courseSubtitle); // Add the subtitle element
+    courseContent.appendChild(courseTerm);
+    courseContent.appendChild(courseDescription);
+
+    serviceItem.appendChild(courseContent);
+
+    const resourcesButton = document.createElement('button');
+    resourcesButton.className = 'resources-button btn btn-primary py-3 px-5';
+    resourcesButton.textContent = 'Resources';
+    resourcesButton.setAttribute('data-bs-toggle', 'collapse');
+    resourcesButton.setAttribute('data-bs-target', `#resources-${index}`);
+    resourcesButton.setAttribute('aria-expanded', 'false');
+    resourcesButton.setAttribute('aria-controls', `resources-${index}`);
+
+    serviceItem.appendChild(resourcesButton);
+
+    const resourcesContainer = document.createElement('div');
+    resourcesContainer.className = 'collapse resources-container';
+    resourcesContainer.id = `resources-${index}`;
+
+    const resourcesList = document.createElement('ul');
+    resourcesList.className = 'resources-list';
+
+    course.resources.forEach(resource => {
+      const listItem = document.createElement('li');
+
+      const resourceLink = document.createElement('a');
+      resourceLink.href = resource.link;
+      resourceLink.textContent = resource.title;
+
+      listItem.appendChild(resourceLink);
+      resourcesList.appendChild(listItem);
+    });
+
+    resourcesContainer.appendChild(resourcesList);
+    serviceItem.appendChild(resourcesContainer);
+
+    courseItem.appendChild(serviceItem);
+
+    coursesContainer.appendChild(courseItem);
+  });
+};
+
+// Call the function to populate the courses
+
+fetchTeaching();
+
+
+    
+      </script>
+</body>
+
+</html>
+
