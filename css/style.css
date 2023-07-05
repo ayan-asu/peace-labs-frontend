@@ -107,6 +107,23 @@
   .navbar .navbar-nav .nav-link {
     padding: 10px 0;
   }
+
+  #category-filter,
+  #category-filter > option {
+    width: 100%;
+  }
+
+  #publication-tabs {
+    width: 100%;
+    overflow-x: scroll;
+  }
+  .miscellaneous-container > div {
+    width: 100%;
+    overflow-y: hidden;
+  }
+  #project {
+    min-height: 2000px;
+  }
 }
 
 /*** Header ***/
@@ -642,7 +659,7 @@
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
-  max-width: 600px;
+  /* max-width: 600px; */
   text-align: center;
 }
 
@@ -682,3 +699,21 @@
   max-width: 600px;
   text-align: center;
 } */
+
+.popup-body > img,
+.popup-image > img {
+  max-width: 50%;
+}
+
+.latest-news {
+  max-height: 50vw;
+}
+
+#positionsList,
+#awardsList {
+  text-align: left;
+}
+
+.awards-popup-content {
+  border-radius: 10px;
+}
