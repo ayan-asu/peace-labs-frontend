@@ -717,3 +717,12 @@
 .awards-popup-content {
   border-radius: 10px;
 }
+
+.modal {
+  z-index: 9999;
+}
+
+.popup-close {
+  top: 10%;
+  right: 5%;
+}
