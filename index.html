@@ -480,7 +480,7 @@
                   <div id="awardsPopup" class="awards-popup">
                     <div class="awards-popup-content">
                       <h2>All Awards</h2>
-                      <ul id="awardsList"></ul>
+                      <ol id="awardsList"></ol>
                     </div>
                   </div>
                   <button id="moreAwardsButton" style="display: none;">More Awards</button>
@@ -1156,10 +1156,14 @@ domainNumber,
           <p id="member-role" class="member-role"></p>
           <p id="member-description" class="member-description"></p>
           <a id="member-linkedin" class="member-linkedin" href="" target="_blank">LinkedIn</a>
+          <div id="member-contact-card" class="member-contact-card">
+            <p id="member-email" class="member-email"></p>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  
   
   <style>
     .member-popup {
@@ -1181,7 +1185,7 @@ domainNumber,
       padding: 20px;
       border: 1px solid #888;
       width: 80%;
-      max-width: 600px;
+      /* max-width: 600px; */
       border-radius: 10px;
     }
   
@@ -1201,7 +1205,7 @@ domainNumber,
     }
   
     .member-details {
-      display: flex;
+      /* display: flex; */
       align-items: center;
     }
   
@@ -1214,6 +1218,11 @@ domainNumber,
       width: 100%;
       height: auto;
       border-radius: 50%;
+      aspect-ratio: 1;
+max-width: 25%;
+object-fit: cover;
+margin-bottom: 20px;
+margin-left: 40%;
     }
   
     .member-info {
@@ -1232,6 +1241,23 @@ domainNumber,
     .member-linkedin {
       display: block;
       margin-top: 10px;
+    }
+    .team-card {
+      cursor: pointer;
+      /* transform: scale(0.75); */
+    }
+
+    .team-card > img {
+      max-height : 100%
+    }
+    .member-title{
+font-weight: 700;
+color : black;
+margin-left : -12px
+    }
+    .member-category {
+      margin-left : -12px;
+      margin-bottom: -8px;
     }
   </style>
   
@@ -1321,7 +1347,7 @@ domainNumber,
 
         teamMembersData.forEach((member) => {
           const colDiv = document.createElement('div');
-          colDiv.classList.add('col-lg-4', 'col-md-6', 'wow', 'fadeInUp');
+          colDiv.classList.add('col-lg-2', 'col-md-6', 'wow', 'fadeInUp', 'team-card');
           colDiv.setAttribute('data-wow-delay', '0.1s');
 
           const teamItemDiv = document.createElement('div');
@@ -1340,14 +1366,16 @@ domainNumber,
           imgElement.addEventListener('click', () => openMemberPopup(member));
 
           const teamTextDiv = document.createElement('div');
-          teamTextDiv.classList.add('team-text', 'bg-white', 'rounded-end', 'p-4');
+          teamTextDiv.classList.add('team-text', 'bg-white', 'rounded-end', 'p-0');
 
           const infoDiv = document.createElement('div');
 
-          const nameElement = document.createElement('h5');
+          const nameElement = document.createElement('p');
+          nameElement.classList.add('member-title');
           nameElement.textContent = member.name;
 
           const roleElement = document.createElement('span');
+          roleElement.classList.add('member-category');
           roleElement.textContent = member.category;
 
           infoDiv.appendChild(nameElement);
@@ -1381,6 +1409,8 @@ domainNumber,
   const memberRole = document.getElementById('member-role');
   const memberDescription = document.getElementById('member-description');
   const memberLinkedIn = document.getElementById('member-linkedin');
+  const memberContactCard = document.getElementById('member-contact-card');
+  const memberEmail = document.getElementById('member-email');
 
   memberImage.src = member.imageUrl;
   memberName.textContent = member.name;
@@ -1414,9 +1444,17 @@ domainNumber,
 
   memberLinkedIn.href = member.linkedin;
 
+  if (member.role === 'Alumni') {
+    // Render contact card for alumni
+    memberContactCard.style.display = 'block';
+    memberEmail.textContent = member.email;
+  } else {
+    // Hide contact card for non-alumni
+    memberContactCard.style.display = 'none';
+  }
+
   memberPopup.style.display = 'block';
 };
-
 
     const closeMemberPopup = () => {
       const memberPopup = document.getElementById('member-popup');
@@ -1482,97 +1520,105 @@ memberPopup.addEventListener('click', (event) => {
         </div>
     </div>
 
-    <script>
+ <!-- Add a popup container -->
+<div class="popup-container"></div>
+
+<script>
   const queryProjects = `*[_type == "project"]{
-  title,
-  "author": author[]->name,
+    title,
+    "author": author[]->name,
     "sponsors":sponsor[]-> name,
-  "categories":  categories[]->title,
-  "domainNumber":categories[]->domainNumber,
-  "mainImage": mainImage.asset->url,
-  publishedAt,
-  youtubeLink,
-  body[]{
-    ...,
-    _type == "image" => {
-      "imageURL": asset->url
+    "categories":  categories[]->title,
+    "domainNumber":categories[]->domainNumber,
+    "mainImage": mainImage.asset->url,
+    publishedAt,
+    youtubeLink,
+    body[]{
+      ...,
+      _type == "image" => {
+        "imageURL": asset->url
+      }
     }
+  }`;
+
+  async function fetchProjects() {
+    const response = await fetch(`https://${projectId}.api.sanity.io/v2021-10-21/data/query/${datasetName}?query=${encodeURIComponent(queryProjects)}`);
+    const data = await response.json();
+    return data.result;
   }
-}`
-        async function fetchProjects() {
-          const response = await fetch( `https://${projectId}.api.sanity.io/v2021-10-21/data/query/${datasetName}?query=${encodeURIComponent(queryProjects)}`);
-          const data = await response.json();
-          return data.result;
-        }
-        
-        let projects;
-        
-        async function renderProjects() {
-  projects = await fetchProjects();
-  const container = document.querySelector('.portfolio-container');
 
-  projects.forEach((item, index) => {
-  const portfolioItem = document.createElement('div');
-  portfolioItem.classList.add('col-lg-3', 'col-md-6', 'portfolio-item', `domain_${item.domainNumber}`);
+  let projects;
 
-  const portfolioImg = document.createElement('div');
-  portfolioImg.classList.add('portfolio-img', 'rounded', 'overflow-hidden');
+  async function renderProjects() {
+    projects = await fetchProjects();
+    const container = document.querySelector('.portfolio-container');
 
-  const img = document.createElement('img');
-  img.classList.add('img-fluid');
-  img.src = item.mainImage;
-  img.alt = '';
+    projects.forEach((item, index) => {
+      const portfolioItem = document.createElement('div');
+      portfolioItem.classList.add('col-lg-3', 'col-md-6', 'portfolio-item', `domain_${item.domainNumber}`);
 
-  const portfolioBtn = document.createElement('div');
-  portfolioBtn.classList.add('portfolio-btn');
+      const portfolioImg = document.createElement('div');
+      portfolioImg.classList.add('portfolio-img', 'rounded', 'overflow-hidden');
 
-  const btnDiv = document.createElement('div');
-  btnDiv.classList.add('d-flex');
+      const img = document.createElement('img');
+      img.classList.add('img-fluid');
+      img.src = item.mainImage;
+      img.alt = '';
 
-  const eyeBtn = document.createElement('a');
-  eyeBtn.classList.add('btn', 'btn-lg-square', 'btn-outline-secondary', 'border-2', 'mx-1');
-  eyeBtn.setAttribute('onclick', `openPopup(${index})`);
+      const portfolioBtn = document.createElement('div');
+      portfolioBtn.classList.add('portfolio-btn');
 
-  const eyeIcon = document.createElement('i');
-  eyeIcon.classList.add('bi', 'bi-eye');
+      const btnDiv = document.createElement('div');
+      btnDiv.classList.add('d-flex');
 
-  eyeBtn.appendChild(eyeIcon);
-  btnDiv.appendChild(eyeBtn);
+      const eyeBtn = document.createElement('a');
+      eyeBtn.classList.add('btn', 'btn-lg-square', 'btn-outline-secondary', 'border-2', 'mx-1');
+      eyeBtn.setAttribute('onclick', `openPopup(${index})`);
 
-  const youtubeBtn = document.createElement('a');
-  youtubeBtn.classList.add('btn', 'btn-lg-square', 'btn-outline-secondary', 'border-2', 'mx-1');
-  youtubeBtn.setAttribute('href', item.youtubeLink);
-  youtubeBtn.setAttribute('target', '_blank');
+      const eyeIcon = document.createElement('i');
+      eyeIcon.classList.add('bi', 'bi-eye');
 
-  const youtubeIcon = document.createElement('i');
-  youtubeIcon.classList.add('bi', 'bi-youtube');
+      eyeBtn.appendChild(eyeIcon);
+      btnDiv.appendChild(eyeBtn);
 
-  youtubeBtn.appendChild(youtubeIcon);
-  btnDiv.appendChild(youtubeBtn);
+      const youtubeBtn = document.createElement('a');
+      youtubeBtn.classList.add('btn', 'btn-lg-square', 'btn-outline-secondary', 'border-2', 'mx-1');
+      youtubeBtn.setAttribute('href', item.youtubeLink);
+      youtubeBtn.setAttribute('target', '_blank');
 
-  portfolioBtn.appendChild(btnDiv);
+      const youtubeIcon = document.createElement('i');
+      youtubeIcon.classList.add('bi', 'bi-youtube');
 
-  const portfolioTitle = document.createElement('p');
-  portfolioTitle.classList.add('portfolio-title');
-  portfolioTitle.textContent = item.title;
+      youtubeBtn.appendChild(youtubeIcon);
+      btnDiv.appendChild(youtubeBtn);
 
-  portfolioImg.appendChild(img);
-  portfolioImg.appendChild(portfolioTitle);
-  portfolioImg.appendChild(portfolioBtn);
+      portfolioBtn.appendChild(btnDiv);
 
-  portfolioItem.appendChild(portfolioImg);
+      const portfolioTitle = document.createElement('p');
+      portfolioTitle.classList.add('portfolio-title');
+      portfolioTitle.textContent = item.title;
 
-  container.appendChild(portfolioItem);
-});
-        }
+      portfolioImg.appendChild(img);
+      portfolioImg.appendChild(portfolioTitle);
+      portfolioImg.appendChild(portfolioBtn);
 
-function openPopup(index) {
-  const blogData = projects[index];
+      portfolioItem.appendChild(portfolioImg);
 
-  const sponsors = blogData.sponsors ? blogData.sponsors.join(", ") : "No sponsors listed";
+      container.appendChild(portfolioItem);
+    });
+  }
 
-  const popupHTML = `
-    <div class="popup">
+  function openPopup(index) {
+    const blogData = projects[index];
+
+    const sponsors = blogData.sponsors ? blogData.sponsors.join(", ") : "No sponsors listed";
+
+    const popupContainer = document.querySelector('.popup-container');
+    popupContainer.innerHTML = ''; // Clear the previous popup content
+
+    const popup = document.createElement('div');
+    popup.classList.add('popup');
+    popup.innerHTML = `
       <div class="popup-content">
         <span class="popup-close" onclick="closePopup()">&times;</span>
         <h2>${blogData.title}</h2>
@@ -1589,20 +1635,17 @@ function openPopup(index) {
         </div>
         <div class="popup-body">${renderBody(blogData.body)}</div>
       </div>
-    </div>
-  `;
+    `;
 
-  document.body.innerHTML += popupHTML;
-}
+    popupContainer.appendChild(popup);
+  }
 
+  // Add an event listener to the category filter select element
+  const categoryFilter = document.getElementById('category-filter');
+  categoryFilter.addEventListener('change', applyCategoryFilter);
 
-
-// Add an event listener to the category filter select element
-const categoryFilter = document.getElementById('category-filter');
-categoryFilter.addEventListener('change', applyCategoryFilter);
-
-// Function to apply the category filter
-function applyCategoryFilter() {
+  // Function to apply the category filter
+  function applyCategoryFilter() {
     const selectedCategory = categoryFilter.value;
 
     // Get all portfolio items
@@ -1610,117 +1653,108 @@ function applyCategoryFilter() {
 
     // Loop through each portfolio item and show/hide based on the selected category
     portfolioItems.forEach((item) => {
-        if (selectedCategory === 'all' || item.classList.contains(`domain_${selectedCategory}`)) {
-            item.style.display = 'block'; // Show the item
-        } else {
-            item.style.display = 'none'; // Hide the item
-        }
+      if (selectedCategory === 'all' || item.classList.contains(`domain_${selectedCategory}`)) {
+        item.style.display = 'block'; // Show the item
+      } else {
+        item.style.display = 'none'; // Hide the item
+      }
     });
-}
+  }
 
+  const container = document.querySelector('.portfolio-container');
 
-      
-const container = document.querySelector('.portfolio-container');
+  // Ensure the DOM is loaded before executing the code
+  document.addEventListener('DOMContentLoaded', renderProjects);
 
+  function closePopup() {
+    const popupContainer = document.querySelector('.popup-container');
+    popupContainer.innerHTML = ''; // Remove the popup content
+  }
 
-        // Ensure the DOM is loaded before executing the code
-        document.addEventListener('DOMContentLoaded', renderProjects);
+  function getAuthorNames(authors) {
+  if (!authors || authors.length === 0) {
+    return "No authors listed";
+  }
 
-        // ===============================================================================
-
-    
-
-        function closePopup() {
-            // Remove the popup from the DOM
-            const popup = document.querySelector('.popup');
-            if (popup) {
-                popup.remove();
-            }
-        }
-
-
-function getAuthorNames(authors) {
   return authors.map((author) => author).join(", ");
 }
 
-function getCategoryNames(categories) {
-  return categories.map((category) => category).join(", ");
-}
-
-
-        function formatDate(dateString) {
-            const date = new Date(dateString);
-            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-        }
-
-        function renderBody(body) {
-  let content = "";
-  let isBulletList = false;
-
-  body.forEach((block) => {
-    if (block._type === "block") {
-      const text = block.children
-        .map((child) => {
-          let formattedText = child.text;
-
-          child.marks.forEach((mark) => {
-            switch (mark) {
-              case "strong":
-                formattedText = `<strong>${formattedText}</strong>`;
-                break;
-              case "underline":
-                formattedText = `<u>${formattedText}</u>`;
-                break;
-              case "em":
-                formattedText = `<em>${formattedText}</em>`;
-                break;
-              case "code":
-                formattedText = `<code>${formattedText}</code>`;
-                break;
-              case "strikethrough":
-                formattedText = `<del>${formattedText}</del>`;
-                break;
-              case "subscript":
-                formattedText = `<sub>${formattedText}</sub>`;
-                break;
-              case "superscript":
-                formattedText = `<sup>${formattedText}</sup>`;
-                break;
-            }
-          });
-
-          return formattedText;
-        })
-        .join("");
-
-      if (block.listItem === "bullet") {
-        if (!isBulletList) {
-          content += "<ul>";
-          isBulletList = true;
-        }
-        content += `<li>${text}</li>`;
-      } else {
-        if (isBulletList) {
-          content += "</ul>";
-          isBulletList = false;
-        }
-        content += `<p>${text}</p>`;
-      }
-    } else if (block._type === "image") {
-      content += `<img src="${block.imageURL}" alt="Image" />`;
-    }
-  });
-
-  if (isBulletList) {
-    content += "</ul>";
+  function getCategoryNames(categories) {
+    return categories.map((category) => category).join(", ");
   }
 
-  return content;
-}
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  }
 
+  function renderBody(body) {
+    let content = "";
+    let isBulletList = false;
 
+    body.forEach((block) => {
+      if (block._type === "block") {
+        const text = block.children
+          .map((child) => {
+            let formattedText = child.text;
 
-      </script>
+            child.marks.forEach((mark) => {
+              switch (mark) {
+                case "strong":
+                  formattedText = `<strong>${formattedText}</strong>`;
+                  break;
+                case "underline":
+                  formattedText = `<u>${formattedText}</u>`;
+                  break;
+                case "em":
+                  formattedText = `<em>${formattedText}</em>`;
+                  break;
+                case "code":
+                  formattedText = `<code>${formattedText}</code>`;
+                  break;
+                case "strikethrough":
+                  formattedText = `<del>${formattedText}</del>`;
+                  break;
+                case "subscript":
+                  formattedText = `<sub>${formattedText}</sub>`;
+                  break;
+                case "superscript":
+                  formattedText = `<sup>${formattedText}</sup>`;
+                  break;
+              }
+            });
+
+            return formattedText;
+          })
+          .join("");
+
+        if (block.listItem === "bullet") {
+          if (!isBulletList) {
+            content += "<ul>";
+            isBulletList = true;
+          }
+          content += `<li>${text}</li>`;
+        } else {
+          if (isBulletList) {
+            content += "</ul>";
+            isBulletList = false;
+          }
+          content += `<p>${text}</p>`;
+        }
+      } else if (block._type === "image") {
+        content += `<img src="${block.imageURL}" alt="Image" />`;
+      }
+    });
+
+    if (isBulletList) {
+      content += "</ul>";
+    }
+
+    return content;
+  }
+
+  
+</script>
     <!-- Projects End -->
 
     <!-- Publications Start -->
