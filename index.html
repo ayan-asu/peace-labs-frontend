@@ -143,10 +143,7 @@
               <div class="latest-news">
    <ul class="list-unstyled news-list">
 
-    <!-- <li><b>Grant (June 2022): </b>Prof. Mallik, as a PI wins funding from the Arizona New Economy Initiative (NEI) Advanced Materials, Processes, and Energy Devices (AMPED) Science and Technology Center (STC) on a project titled 'New Methodologies for Predicting Remaining Life of Second Life Lithium-Ion Batteries'</li>
-    <li><b>Grant (June 2022): </b>Prof. Mallik, as a Co-PI wins funding from the Arizona New Economy Initiative (NEI) Advanced Materials, Processes, and Energy Devices (AMPED) Science and Technology Center (STC) on a project titled 'Phase Change Materials as Passive Thermal Management Medium for Li-Ion Batteries for electric vehicle (EV) applications'</li>
-    <li><b>Grant (May 2022): </b>Prof. Mallik, as a PI wins funding from Salt River Project (SRP) on a project titled 'Modeling, Analysis, and Mitigation of Power Quality Impacts of Electric Vehicle (EV) Charging'</li>
-    <li>News Topic 4</li> -->
+
   </ul>
               </div>
             </div>
@@ -157,36 +154,42 @@
       
     <!-- Header End -->
 
-
 <!-- Video Modal Start -->
 <div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content rounded-0">
-        <div class="modal-header">
-          <h3 class="modal-title" id="exampleModalLabel">PEACE Lab Tour</h3>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <!-- 16:9 aspect ratio -->
-          <div class="ratio ratio-16x9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/okCiAMTxVbE" allowfullscreen></iframe>
-          </div>
+  <div class="modal-dialog">
+    <div class="modal-content rounded-0">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">PEACE Lab Tour</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- 16:9 aspect ratio -->
+        <div class="ratio ratio-16x9">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/okCiAMTxVbE" allowfullscreen></iframe>
         </div>
       </div>
     </div>
   </div>
-  
-  <script>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
     // Get the modal element and the video iframe
     const modal = document.getElementById('videoModal');
     const videoIframe = modal.querySelector('.modal-body iframe');
-  
-    // Add an event listener to the modal's 'hidden.bs.modal' event
-    modal.addEventListener('hidden.bs.modal', function () {
+
+    // Get the close button element
+    const closeButton = modal.querySelector('.btn-close');
+
+    // Add a click event listener to the close button
+    closeButton.addEventListener('click', function () {
       // Pause the video playback when the modal is closed
       videoIframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
     });
-  </script>
+  });
+</script>
+
+  
   
 
       
