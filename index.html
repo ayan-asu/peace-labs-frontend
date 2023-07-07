@@ -688,7 +688,9 @@
         const newsTitle = document.createElement('h3');
         const closeButton = document.createElement('button');
 
-        newsTitle.textContent = 'News';
+        newsTitle.textContent = 'All News';
+        newsList.appendChild(newsTitle)
+
         closeButton.textContent = 'X';
         closeButton.classList.add('popup-close');
 
@@ -771,8 +773,8 @@
           newsList.appendChild(newsListItem);
         });
 
-        newsPopup.appendChild(closeButton);
-        newsPopup.appendChild(newsTitle);
+        // newsPopup.appendChild(closeButton);
+        // newsPopup.appendChild(newsTitle);
         newsPopup.appendChild(newsList);
 
         newsPopup.addEventListener('click', (event) => {
