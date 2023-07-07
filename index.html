@@ -1458,6 +1458,11 @@ domainNumber,
 
         container.appendChild(portfolioItem);
       });
+      // Apply the default filter only for mobile view
+      if (window.innerWidth <= 768) {
+        categoryFilter.value = '1'; // Set the default filter value to '1' (Extreme Environment Power Electronics)
+        applyCategoryFilter();
+      }
     }
 
     function openPopup(index) {
@@ -1808,14 +1813,14 @@ domainNumber,
 
 
   <!-- Testimonial Start -->
-  <div class="container-fluid bg-light py-5 my-5" id="miscellaneous">
+  <div class="container-fluid bg-light py-2 my-5" id="miscellaneous">
     <div class="container-fluid py-5">
-      <h1 class="display-5 text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Miscellaneous</h1>
       <div class="gallery-container">
         <h3 class="text-center" style="margin-top: 32px;color: var(--primary);">Gallery</h3>
         <div class="gallery">
           <!-- Images will be added dynamically from the backend -->
         </div>
+        <h1 class="display-5 text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Miscellaneous</h1>
       </div>
       <div class="row justify-content-start">
         <div class="miscellaneous-container row">
@@ -1977,7 +1982,6 @@ domainNumber,
         console.error('Error fetching miscellaneous data:', error);
       }
     };
-
     // Call the function to fetch and render the gallery data
     fetchGallery();
   </script>
