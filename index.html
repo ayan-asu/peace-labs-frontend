@@ -90,6 +90,7 @@
       <div class="navbar-nav me-auto py-0">
         <a href="#publication" class="nav-item nav-link">Publications</a>
         <a href="#teaching" class="nav-item nav-link">Teaching</a>
+        <a href="#tools" class="nav-item nav-link">Tools</a>
         <a href="#miscellaneous" class="nav-item nav-link">Miscellaneous</a>
         <a href="#contact" class="nav-item nav-link">Contact</a>
       </div>
@@ -1810,9 +1811,25 @@ domainNumber,
     </div>
   </div>
   <!-- Teaching End -->
+   
+  <!-- Tools Start -->
+  <div class="container-fluid bg-light my-5 py-6" id="research-tools">
+    <div class="container">
+      <div class="row g-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="col-lg-6">
+          <h1 class="display-5 mb-0">Tools</h1>
+        </div>
+        <div class="col-lg-6 text-lg-end">
+        </div>
+      </div>
+      <div id="tools" class="row g-4">
 
+      </div>
+    </div>
+  </div>
+  <!-- Tools End -->
 
-  <!-- Testimonial Start -->
+  <!-- Miscellaneous Start -->
   <div class="container-fluid bg-light py-2 my-5" id="miscellaneous">
     <div class="container-fluid py-5">
       <div class="gallery-container">
@@ -2400,6 +2417,198 @@ domainNumber,
 
     fetchTeaching();
 
+  </script>
+  <!-- ----------------------------- TOOLS SCRIPT --------------------------------------------------- -->
+  <script>
+    const queryTools = `*[_type == "tools"]{
+        name,
+        description,
+        executableFile{
+          asset->{
+            _id,
+            url,
+            originalFilename,
+            size
+          }
+        },
+        files[]{
+          file{
+            asset->{
+              _id,
+              url,
+              originalFilename,
+              size
+            }
+          },
+          fileType,
+          description
+        },
+        youtubeLink
+      }`;
+    const fetchTools = async () => {
+      try {
+        const response = await fetch(
+          `https://${projectId}.api.sanity.io/v2021-10-21/data/query/${datasetName}?query=${encodeURIComponent(queryTools)}`);
+
+        if (!response.ok) {
+          throw new Error('Error fetching Tools');
+        }
+
+        const { result } = await response.json();
+        const toolsData = result;
+        populateTools(toolsData);
+      } catch (error) {
+        console.error('Error fetching tools:', error);
+      }
+
+    };
+
+    const populateTools = (toolsData) => {
+      const toolsContainer = document.getElementById('tools');
+
+      toolsData.forEach((tool, index) => {
+        const toolItem = document.createElement('div');
+        toolItem.className = 'col-lg-6 wow fadeInUp';
+        toolItem.setAttribute('data-wow-delay', '0.1s');
+
+        const serviceItem = document.createElement('div');
+        serviceItem.className = 'service-item d-flex flex-column  bg-white rounded h-100 p-4 p-lg-5';
+
+        const toolContent = document.createElement('div');
+        toolContent.className = 'ms-sm-4';
+
+        const toolTitle = document.createElement('h4');
+        toolTitle.className = 'mb-1 course';
+        toolTitle.textContent = tool.name;
+
+        const toolDescription = document.createElement('span');
+        toolDescription.className = 'course_description';
+        toolDescription.textContent = tool.description;
+
+        toolContent.appendChild(toolTitle);
+        toolContent.appendChild(toolDescription);
+        serviceItem.appendChild(toolContent);
+
+        // Create button container for horizontal alignment
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'd-flex gap-2 w-100';
+
+        // Array to store buttons for width calculation
+        const buttons = [];
+
+        // Files Button
+        const filesButton = document.createElement('button');
+        filesButton.className = 'files-button resources-button btn btn-primary py-3 px-5 flex-fill';
+        filesButton.textContent = 'Files';
+        filesButton.setAttribute('data-bs-toggle', 'collapse');
+        filesButton.setAttribute('data-bs-target', `#files-${index}`);
+        filesButton.setAttribute('aria-expanded', 'false');
+        filesButton.setAttribute('aria-controls', `files-${index}`);
+        buttons.push(filesButton);
+
+        // Download Tool Button (for executable file)
+        if (tool.executableFile?.asset?.url) {
+          const downloadButton = document.createElement('button');
+          downloadButton.className = 'download-button resources-button btn btn-primary py-3 px-5 flex-fill';
+          downloadButton.textContent = 'Download Tool';
+          downloadButton.addEventListener('click', () => {
+            // Create a temporary link to download the file
+            const link = document.createElement('a');
+            link.href = tool.executableFile.asset.url;
+            link.download = tool.executableFile.asset.originalFilename || 'tool.exe';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          });
+          buttons.push(downloadButton);
+        }
+
+        // Demo Button (conditionally displayed if YouTube link exists)
+        if (tool.youtubeLink) {
+          const demoButton = document.createElement('button');
+          demoButton.className = 'demo-button resources-button btn btn-primary py-3 px-5 flex-fill';
+          demoButton.textContent = 'Demo';
+          demoButton.addEventListener('click', () => {
+            window.open(tool.youtubeLink, '_blank');
+          });
+          buttons.push(demoButton);
+        }
+
+        // Add all buttons to container
+        buttons.forEach(button => {
+          buttonContainer.appendChild(button);
+        });
+
+        serviceItem.appendChild(buttonContainer);
+
+        // Files Container (collapsible)
+        const filesContainer = document.createElement('div');
+        filesContainer.className = 'collapse files-container';
+        filesContainer.id = `files-${index}`;
+
+        const filesList = document.createElement('ul');
+        filesList.className = 'files-list list-unstyled mt-3';
+
+        tool.files.forEach(file => {
+          const listItem = document.createElement('li');
+          listItem.className = 'mb-2';
+
+          // Check if file has a valid asset with URL
+          if (file.file?.asset?.url) {
+            // File with valid reference - create downloadable link
+            const fileLink = document.createElement('a');
+            fileLink.href = file.file.asset.url;
+            fileLink.target = '_blank';
+            fileLink.className = 'text-decoration-none';
+            
+            // Create file info display
+            const fileName = file.file.asset.originalFilename || 'Unknown file';
+            const fileType = file.fileType ? file.fileType.toUpperCase() : 'FILE';
+            const fileDescription = file.description ? ` - ${file.description}` : '';
+            const fileSize = file.file.asset.size ? ` (${(file.file.asset.size / 1024).toFixed(1)} KB)` : '';
+            
+            fileLink.innerHTML = `
+              <i class="bi bi-file-earmark me-2"></i>
+              <strong>${fileName}</strong> 
+              <span class="badge bg-secondary ms-2">${fileType}</span>
+              <small class="text-muted">${fileSize}</small>
+              ${fileDescription}
+            `;
+
+            listItem.appendChild(fileLink);
+          } else {
+            // File without valid reference - display as text only
+            const fileInfo = document.createElement('span');
+            fileInfo.className = 'text-muted';
+            
+            const fileName = file.file?.asset?.originalFilename || 'Unknown file';
+            const fileType = file.fileType ? file.fileType.toUpperCase() : 'FILE';
+            const fileDescription = file.description ? ` - ${file.description}` : '';
+            
+            fileInfo.innerHTML = `
+              <i class="bi bi-file-earmark-x me-2"></i>
+              <strong>${fileName}</strong> 
+              <span class="badge bg-warning ms-2">${fileType}</span>
+              ${fileDescription}
+              <small class="text-danger ms-2">(File not available)</small>
+            `;
+
+            listItem.appendChild(fileInfo);
+          }
+
+          filesList.appendChild(listItem);
+        });
+
+        filesContainer.appendChild(filesList);
+        serviceItem.appendChild(filesContainer);
+
+        toolItem.appendChild(serviceItem);
+
+        toolsContainer.appendChild(toolItem);
+      });
+    };
+
+    fetchTools();
   </script>
 </body>
 

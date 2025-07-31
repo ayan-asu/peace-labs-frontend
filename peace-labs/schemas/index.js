@@ -15,6 +15,7 @@ import gallery from './gallery.js'
 import awards from './awards.js'
 import positions from './positions.js'
 import contactForm from './contactForm.js'
+import tools from './tools.js'
 
 export const schemaTypes = [
   project,
@@ -34,4 +35,5 @@ export const schemaTypes = [
   awards,
   positions,
   contactForm,
+  tools,
 ]
